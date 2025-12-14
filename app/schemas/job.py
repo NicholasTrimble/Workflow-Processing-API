@@ -15,4 +15,13 @@ class JobResponse(BaseModel):
     class Config:
         from_attributes = True
 
+
+class JobListResponse(BaseModel):
+    id: int
+    status: JobStatus
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
         

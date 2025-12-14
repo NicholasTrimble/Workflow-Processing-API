@@ -7,10 +7,11 @@ from app.db.deps import get_db
 from app.schemas.job import JobCreateRequest, JobResponse
 from app.services.job_service import create_job
 from app.models import job  # ensures model registration
-
+from app.api import jobs
 
 app = FastAPI(title=settings.app_name)
 
+app.include_router(jobs.router)
 
 @app.on_event("startup")
 def startup():
