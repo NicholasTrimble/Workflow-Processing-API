@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+
+# Env files
+.env
+.env.*
+
+# Databases
+*.db
+*.sqlite3
+
+# Tooling
+.vscode/
+.idea/
+.pytest_cache/
+.coverage
+dist/
+build/
+*.egg-info/
