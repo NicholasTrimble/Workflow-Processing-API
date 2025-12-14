@@ -4,3 +4,5 @@ pydantic
 sqlalchemy
 pydantic-settings
 python-multipart
+streamlit
+
