@@ -8,14 +8,24 @@ from app.schemas.job import JobCreateRequest, JobResponse
 from app.services.job_service import create_job
 from app.models import job  # ensures model registration
 from app.api import jobs
+from app.api import auth
+from app.auth.auth_bearer import JWTBearer
 
 app = FastAPI(title=settings.app_name)
 
 app.include_router(jobs.router)
+app.include_router(auth.router)
 
 @app.on_event("startup")
 def startup():
     Base.metadata.create_all(bind=engine)
+
+
+
+@app.get("/secure", dependencies=[Depends(JWTBearer())])
+def secure_route():
+    return {"message": "You accessed a protected route!"}
+
 
 
 @app.get("/health")
